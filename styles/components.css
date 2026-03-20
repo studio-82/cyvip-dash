@@ -1,0 +1,237 @@
+/* ========================================
+   CyVIP Dashboard - Component Styles
+   ======================================== */
+
+/* --- Submission Row --- */
+.sub-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+  transition: background 0.15s;
+}
+
+.sub-row:hover {
+  background: rgba(158, 107, 97, 0.04);
+  margin: 0 -0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 6px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-num {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 28px;
+}
+
+.sub-email {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sub-pref {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.pref--tea {
+  background: rgba(158, 107, 97, 0.12);
+  color: #8B5E3C;
+}
+
+.pref--milk {
+  background: rgba(74, 54, 48, 0.08);
+  color: #6B4842;
+}
+
+.sub-date {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  min-width: 80px;
+  text-align: right;
+}
+
+.sub-delete {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.sub-row:hover .sub-delete {
+  opacity: 1;
+}
+
+.sub-delete:hover {
+  background: rgba(179, 58, 42, 0.1);
+  color: var(--status-declined);
+}
+
+.sub-delete.confirming {
+  opacity: 1;
+  background: var(--status-declined);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  animation: pulse 0.5s ease infinite alternate;
+}
+
+.empty-msg {
+  text-align: center;
+  padding: 4rem 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* --- Detail View --- */
+.back-btn {
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+
+.back-btn:hover { color: var(--text); }
+
+.detail-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.detail-email {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.detail-mailto {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.detail-mailto:hover { text-decoration: underline; }
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.detail-status {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-pref {
+  font-size: 0.75rem;
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(158, 107, 97, 0.08);
+}
+
+.detail-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* --- Action Buttons --- */
+.detail-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 10px 24px;
+  border: 1.5px solid var(--border);
+  border-radius: 30px;
+  background: none;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action--contacted { color: var(--status-contacted); border-color: var(--status-contacted); }
+.action--contacted:hover { background: var(--status-contacted); color: #fff; }
+
+.action--converted { color: var(--status-converted); border-color: var(--status-converted); }
+.action--converted:hover { background: var(--status-converted); color: #fff; }
+
+.action--declined { color: var(--status-declined); border-color: var(--status-declined); }
+.action--declined:hover { background: var(--status-declined); color: #fff; }
+
+.action--delete {
+  color: var(--text-muted);
+  border-color: var(--text-muted);
+  margin-left: auto;
+}
+
+.action--delete:hover { background: var(--status-declined); color: #fff; border-color: var(--status-declined); }
+
+.action--delete.confirming {
+  background: var(--status-declined);
+  color: #fff;
+  border-color: var(--status-declined);
+  animation: pulse 0.5s ease infinite alternate;
+}
+
+@keyframes pulse {
+  to { opacity: 0.7; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sub-row { flex-wrap: wrap; gap: 0.5rem; }
+  .sub-pref { display: none; }
+  .sub-date { display: none; }
+  .detail-header { flex-direction: column; gap: 0.5rem; }
+  .detail-email { font-size: 1.25rem; }
+  .detail-meta { flex-wrap: wrap; gap: 0.75rem; }
+  .detail-actions { flex-direction: column; }
+  .action--delete { margin-left: 0; }
+}

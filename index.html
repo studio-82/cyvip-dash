@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yummy Delights - Dashboard</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- Login Gate -->
+  <div id="login-view" class="view active">
+    <div class="login-box">
+      <h1 class="login-title">Yummy Delights</h1>
+      <p class="login-sub">dashboard access</p>
+      <div class="login-input-wrap">
+        <input type="password" id="key-input" class="login-input" placeholder="enter key">
+      </div>
+      <button id="btn-login" class="login-btn">Enter</button>
+      <p id="login-error" class="login-error"></p>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard-view" class="view">
+
+    <!-- Toolbar -->
+    <header class="toolbar">
+      <div class="toolbar-left">
+        <h2 class="brand">Yummy Delights</h2>
+        <span class="brand-sub">waitlist</span>
+      </div>
+      <div class="toolbar-right">
+        <span id="refresh-time" class="refresh-time"></span>
+        <button id="btn-refresh" class="toolbar-btn">Refresh</button>
+        <button id="btn-logout" class="toolbar-btn toolbar-btn--muted">Logout</button>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <div id="stats" class="stats-bar"></div>
+
+    <!-- Filter + Export bar -->
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="pre-tea">Pre-Tea</button>
+        <button class="filter-tab" data-filter="milk-drops">Milk Drops</button>
+      </div>
+      <div class="export-group">
+        <button id="btn-export" class="toolbar-btn export-btn">Export CSV</button>
+      </div>
+    </div>
+
+    <!-- Email List -->
+    <div id="list-view" class="content-area">
+      <div id="submissions-list" class="submissions-list"></div>
+      <p id="empty-msg" class="empty-msg" style="display:none">No submissions yet</p>
+    </div>
+
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

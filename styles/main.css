@@ -1,0 +1,321 @@
+/* ========================================
+   CyVIP Dashboard - Main Styles
+   ======================================== */
+
+:root {
+  --bg: #f5ece8;
+  --surface: #fff;
+  --text: #4a3630;
+  --text-muted: rgba(74, 54, 48, 0.5);
+  --accent: #9E6B61;
+  --accent-light: #D4B0A6;
+  --border: rgba(74, 54, 48, 0.1);
+  --status-pending: #999;
+  --status-contacted: #b8860b;
+  --status-converted: #2d8a4e;
+  --status-declined: #b33a2a;
+  --font: "Gill Sans", "Optima", "Avenir", "Segoe UI", sans-serif;
+  --font-display: "Didot", "Bodoni MT", Georgia, serif;
+  --radius: 12px;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.view {
+  display: none;
+  position: fixed; inset: 0;
+}
+
+.view.active {
+  display: flex;
+}
+
+/* --- Login --- */
+#login-view {
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem;
+}
+
+.login-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.login-sub {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.login-input-wrap {
+  width: 280px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  background: transparent;
+  font-family: var(--font);
+  font-size: 1rem;
+  text-align: center;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.login-input:focus {
+  border-bottom-color: var(--accent);
+}
+
+.login-input::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.login-btn {
+  margin-top: 0.5rem;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 40px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.login-btn:hover { transform: scale(1.03); }
+.login-btn:active { transform: scale(0.97); }
+
+.login-error {
+  color: var(--status-declined);
+  font-size: 0.8rem;
+  height: 1.2em;
+}
+
+/* --- Dashboard Layout --- */
+#dashboard-view {
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- Toolbar --- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 2px solid var(--text);
+  flex-shrink: 0;
+}
+
+.toolbar-left { display: flex; align-items: baseline; gap: 0.75rem; }
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.brand-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.toolbar-right { display: flex; align-items: center; gap: 1rem; }
+
+.refresh-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.toolbar-btn {
+  padding: 8px 20px;
+  border: 1.5px solid var(--text);
+  border-radius: 30px;
+  background: none;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.toolbar-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.toolbar-btn--muted {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+}
+
+.toolbar-btn--muted:hover {
+  background: var(--text-muted);
+  color: var(--bg);
+}
+
+/* --- Stats --- */
+.stats-bar {
+  display: flex;
+  gap: 0;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.stat--pref-tea .stat-num { color: #8B5E3C; }
+.stat--pref-milk .stat-num { color: var(--accent); }
+
+/* --- Filter Bar --- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.filter-tabs {
+  display: flex;
+}
+
+.export-group {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.export-btn {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+}
+
+.export-btn:hover {
+  opacity: 0.85;
+}
+
+.filter-tab {
+  padding: 0.85rem 1.25rem;
+  border: none;
+  background: none;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.filter-tab:hover { color: var(--text); }
+
+.filter-tab.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* --- Content Area --- */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 2rem 2rem;
+}
+
+/* --- Toast --- */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: var(--status-converted);
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 100;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast--error { background: var(--status-declined); }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .toolbar { padding: 1rem; }
+  .stats-bar { padding: 1rem; }
+  .content-area { padding: 1rem; }
+  .filter-bar { padding: 0 1rem; overflow-x: auto; }
+  .stat-num { font-size: 1.25rem; }
+  .toolbar-right { gap: 0.5rem; }
+  .refresh-time { display: none; }
+}
